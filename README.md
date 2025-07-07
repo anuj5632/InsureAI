@@ -14,11 +14,7 @@ InsureAI is a predictive analytics web app that estimates medical insurance cost
 - JavaScript, LottieFiles, Particles.js
 - Machine Learning (Linear Regression)
 
-## 📸 Screenshots
-(Add images/gifs here showing the UI)
 
-## 🌐 Live Demo (Optional)
-[Link to Live App if hosted]
 
 ## 📥 Installation
 ```bash
