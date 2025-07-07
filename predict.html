@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Insurance Predictor</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body, html {
+      height: 100%;
+      overflow: hidden;
+    }
+
+    #background {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      background-color: #0a0f0d;
+    }
+
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      color: white;
+    }
+
+    .form-box {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+    }
+
+    h2 {
+      margin-bottom: 20px;
+      text-align: center;
+      font-size: 28px;
+      font-weight: 600;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    input, select {
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+      font-size: 16px;
+    }
+
+    input:focus, select:focus {
+      outline: 2px solid #00ffaa;
+    }
+
+    button {
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      background-color: #00ffaa;
+      color: black;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background-color: #00dd99;
+    }
+
+    .result {
+      margin-top: 20px;
+      text-align: center;
+      font-size: 18px;
+      font-weight: 500;
+      color: #00ffaa;
+    }
+
+    .error {
+      color: red;
+      text-align: center;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="background"></canvas>
+
+  <div class="container">
+    <div class="form-box">
+      <h2>Insurance Cost Prediction</h2>
+      <form method="POST">
+        <input type="number" name="age" placeholder="Age" required>
+        <select name="sex" required>
+          <option value="">Select Sex</option>
+          <option value="0">Female</option>
+          <option value="1">Male</option>
+        </select>
+        <input type="number" step="any" name="bmi" placeholder="BMI" required>
+        <input type="number" name="children" placeholder="Number of Children" required>
+        <select name="smoker" required>
+          <option value="">Smoker?</option>
+          <option value="0">No</option>
+          <option value="1">Yes</option>
+        </select>
+        <select name="region" required>
+          <option value="">Region</option>
+          <option value="0">Northeast</option>
+          <option value="1">Northwest</option>
+          <option value="2">Southeast</option>
+          <option value="3">Southwest</option>
+        </select>
+        <button type="submit">Predict</button>
+      </form>
+
+      {% if prediction %}
+      <div class="result">
+        Predicted Insurance Cost: ₹{{ prediction }}
+      </div>
+      {% elif error %}
+      <div class="error">{{ error }}</div>
+      {% endif %}
+    </div>
+  </div>
+
+  <!-- Live background effect -->
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <script>
+    particlesJS("background", {
+      "particles": {
+        "number": {
+          "value": 80,
+          "density": {
+            "enable": true,
+            "value_area": 800
+          }
+        },
+        "color": {
+          "value": "#ffffff"
+        },
+        "shape": {
+          "type": "circle"
+        },
+        "opacity": {
+          "value": 0.5,
+          "random": false
+        },
+        "size": {
+          "value": 3,
+          "random": true
+        },
+        "line_linked": {
+          "enable": true,
+          "distance": 150,
+          "color": "#ffffff",
+          "opacity": 0.4,
+          "width": 1
+        },
+        "move": {
+          "enable": true,
+          "speed": 4,
+          "direction": "none",
+          "straight": false,
+          "out_mode": "out"
+        }
+      },
+      "interactivity": {
+        "detect_on": "canvas",
+        "events": {
+          "onhover": {
+            "enable": true,
+            "mode": "repulse"
+          }
+        }
+      },
+      "retina_detect": true
+    });
+  </script>
+</body>
+</html>

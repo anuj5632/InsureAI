@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>About - InsureAI</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: 'Segoe UI', sans-serif;
+      overflow-x: hidden;
+    }
+
+    #particles-js {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      background: radial-gradient(circle at top, #0f5132, #000000);
+    }
+
+    .logo-video {
+      position: fixed;
+      top: 15px;
+      left: 15px;
+      z-index: 1000;
+      cursor: pointer;
+    }
+
+    .logo-video video {
+      height: 60px;
+      border-radius: 8px;
+    }
+    .logo-video:hover{
+        border-radius: 8px;
+        transform: scale(1.05);
+        box-shadow: 0 0 25px 5px rgba(53, 103, 53, 0.7);
+    }
+
+    .content-container {
+      padding: 100px 40px 60px;
+      max-width: 1000px;
+      margin: auto;
+      color:white;
+    }
+
+    h1, h2 {
+      font-style: italic;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 1.1rem;
+      line-height: 1.7;
+    }
+
+    ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    ul li::before {
+      content: ".";
+      margin-right: 8px;
+      color: #00ff99;
+    }
+
+    @media (max-width: 768px) {
+      .content-container {
+        padding: 80px 20px 40px;
+      }
+
+      .logo-video video {
+        height: 50px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  
+  <div id="particles-js"></div>
+
+  
+  <a href="/about" class="logo-video">
+    <video src="{{ url_for('static', filename='InsureAI.mp4') }}" height="80px" autoplay loop muted playsinline></video>
+  </a>
+
+  
+  <div class="content-container">
+    <h1> About InsureAI</h1>
+    <p><strong>InsureAI</strong> is a predictive analytics web application built using the power of machine learning. It aims to estimate <strong>medical insurance costs</strong> for individuals based on key personal and lifestyle factors such as <em>age</em>, <em>BMI</em>, <em>smoking status</em>, and <em>geographic region</em>. By collecting this information and applying trained models, the platform generates personalized cost predictions with a high degree of accuracy.</p>
+
+    <h2> Our Mission</h2>
+    <p>At InsureAI, our mission is to make health insurance more <strong>transparent</strong>, <strong>accessible</strong>, and <strong>data-driven</strong>. Insurance premiums often seem complex and unclear to users—InsureAI brings clarity through easy-to-understand insights and interactive predictions.</p>
+
+    <h2> How It Works</h2>
+    <ul>
+      <li>Users input basic data like age, sex, BMI, number of children, smoking habits, and location.</li>
+      <li>A machine learning model (trained on real-world insurance datasets) processes this input.</li>
+      <li>The model then predicts the most likely insurance premium range for that profile.</li>
+      <li>Results are presented instantly with a user-friendly interface and visuals.</li>
+    </ul>
+
+    <h2> Why Choose InsureAI?</h2>
+    <ul>
+      <li>Fast Predictions: Instant results based on real-time processing.</li>
+      <li>User-Friendly UI: Designed for simplicity and ease of use.</li>
+      <li>Privacy Focused: Your data is not stored or misused.</li>
+      <li>Visually Engaging: Built with modern animations and design.</li>
+      <li>Insightful Guidance: Understand what impacts your insurance most.</li>
+    </ul>
+
+    <h2> Who Is It For?</h2>
+    <ul>
+      <li>Individuals planning or comparing health insurance costs.</li>
+      <li>Healthcare consultants analyzing premium risk.</li>
+      <li>Students learning about ML applications in real-world domains.</li>
+    </ul>
+
+    <h2> Tech Stack</h2>
+    <ul>
+      <li>Frontend: HTML, CSS, Bootstrap, Lottie, JavaScript</li>
+      <li>Backend: Python Flask</li>
+      <li>Machine Learning: scikit-learn, pandas</li>
+    </ul>
+  </div>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <script>
+    particlesJS("particles-js", {
+      "particles": {
+        "number": { "value": 80 },
+        "color": { "value": "#ffffff" },
+        "shape": {
+          "type": "circle",
+          "stroke": { "width": 0, "color": "#000000" },
+        },
+        "opacity": {
+          "value": 0.5,
+          "random": true,
+        },
+        "size": {
+          "value": 3,
+          "random": true,
+        },
+        "move": {
+          "enable": true,
+          "speed": 1,
+        }
+      },
+      "interactivity": {
+        "events": {
+          "onhover": { "enable": true, "mode": "repulse" },
+        },
+      },
+      "retina_detect": true
+    });
+  </script>
+
+</body>
+</html>
